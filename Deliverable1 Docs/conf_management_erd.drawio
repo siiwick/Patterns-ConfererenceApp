@@ -1,0 +1,120 @@
+<mxfile host="Electron">
+  <diagram name="Page-1" id="page-1">
+    <mxGraphModel dx="571" dy="334" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0" adaptiveColors="auto">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;fontSize=20;fontStyle=1;align=left;" value="Conference Management System – ER Diagram" vertex="1">
+          <mxGeometry height="30" width="470" x="580" y="211" as="geometry" />
+        </mxCell>
+        <mxCell id="T_cred" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontalStack=0;resizeParent=1;resizeParentMax=0;horizontal=1;startSize=26;collapsible=0;html=1;fontSize=14;fillColor=#e1d5e7;strokeColor=#9673a6;" value="credentials" vertex="1">
+          <mxGeometry height="104" width="170" x="380" y="301" as="geometry" />
+        </mxCell>
+        <mxCell id="c1" parent="T_cred" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;html=1;fontSize=13;fontStyle=1;" value="PK, FK  user_id" vertex="1">
+          <mxGeometry height="26" width="170" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="c2" parent="T_cred" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;html=1;fontSize=13;" value="password_hash  TEXT  NN" vertex="1">
+          <mxGeometry height="26" width="170" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="c5" parent="T_cred" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;html=1;fontSize=13;" value="updated_at  TEXT" vertex="1">
+          <mxGeometry height="26" width="170" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="T_users" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontalStack=0;resizeParent=1;resizeParentMax=0;horizontal=1;startSize=26;collapsible=0;html=1;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="users (profile)" vertex="1">
+          <mxGeometry height="182" width="230" x="330" y="501" as="geometry" />
+        </mxCell>
+        <mxCell id="u1" parent="T_users" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;html=1;fontSize=13;fontStyle=1;" value="PK  user_id  INTEGER" vertex="1">
+          <mxGeometry height="26" width="230" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="u2" parent="T_users" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;html=1;fontSize=13;" value="full_name  TEXT  NN" vertex="1">
+          <mxGeometry height="26" width="230" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="u3" parent="T_users" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;html=1;fontSize=13;" value="UK  email  TEXT  NN" vertex="1">
+          <mxGeometry height="26" width="230" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="u4" parent="T_users" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;html=1;fontSize=13;" value="age  INTEGER  CK [16-120]" vertex="1">
+          <mxGeometry height="26" width="230" y="104" as="geometry" />
+        </mxCell>
+        <mxCell id="u5" parent="T_users" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;html=1;fontSize=13;" value="role  TEXT  CK ADMIN|PARTICIPANT" vertex="1">
+          <mxGeometry height="26" width="230" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="u6" parent="T_users" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;html=1;fontSize=13;" value="created_at  TEXT" vertex="1">
+          <mxGeometry height="26" width="230" y="156" as="geometry" />
+        </mxCell>
+        <mxCell id="T_conf" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontalStack=0;resizeParent=1;resizeParentMax=0;horizontal=1;startSize=26;collapsible=0;html=1;fontSize=14;fillColor=#d5e8d4;strokeColor=#82b366;" value="conferences" vertex="1">
+          <mxGeometry height="208" width="200" x="1050" y="481" as="geometry" />
+        </mxCell>
+        <mxCell id="k1" parent="T_conf" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;html=1;fontSize=13;fontStyle=1;" value="PK  conference_id  INTEGER" vertex="1">
+          <mxGeometry height="26" width="200" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="k2" parent="T_conf" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;html=1;fontSize=13;" value="title  TEXT  NN" vertex="1">
+          <mxGeometry height="26" width="200" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="k3" parent="T_conf" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;html=1;fontSize=13;" value="capacity  INTEGER  CK &gt; 0" vertex="1">
+          <mxGeometry height="26" width="200" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="k4" parent="T_conf" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;html=1;fontSize=13;" value="start_datetime  TEXT  NN" vertex="1">
+          <mxGeometry height="26" width="200" y="104" as="geometry" />
+        </mxCell>
+        <mxCell id="k5" parent="T_conf" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;html=1;fontSize=13;" value="end_datetime  TEXT  CK &gt; start" vertex="1">
+          <mxGeometry height="26" width="200" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="k6" parent="T_conf" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;html=1;fontSize=13;" value="location&amp;nbsp; TEXT  (optional)" vertex="1">
+          <mxGeometry height="26" width="200" y="156" as="geometry" />
+        </mxCell>
+        <mxCell id="k7" parent="T_conf" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;html=1;fontSize=13;" value="created_at  TEXT" vertex="1">
+          <mxGeometry height="26" width="200" y="182" as="geometry" />
+        </mxCell>
+        <mxCell id="T_reg" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontalStack=0;resizeParent=1;resizeParentMax=0;horizontal=1;startSize=26;collapsible=0;html=1;fontSize=14;fillColor=#fff2cc;strokeColor=#d6b656;" value="registrations" vertex="1">
+          <mxGeometry height="182" width="280" x="680" y="494" as="geometry" />
+        </mxCell>
+        <mxCell id="r1" parent="T_reg" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;html=1;fontSize=13;fontStyle=1;" value="PK  registration_id  INTEGER" vertex="1">
+          <mxGeometry height="26" width="280" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="r2" parent="T_reg" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;html=1;fontSize=13;" value="FK  user_id  → users  (UK pair)" vertex="1">
+          <mxGeometry height="26" width="280" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="r3" parent="T_reg" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;html=1;fontSize=13;" value="FK  conference_id  → conferences  (UK pair)" vertex="1">
+          <mxGeometry height="26" width="280" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="r4" parent="T_reg" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;html=1;fontSize=13;" value="status  CK CONFIRMED|WAITLISTED" vertex="1">
+          <mxGeometry height="26" width="280" y="104" as="geometry" />
+        </mxCell>
+        <mxCell id="r5" parent="T_reg" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;html=1;fontSize=13;" value="waitlist_position  INTEGER  (NULL if confirmed)" vertex="1">
+          <mxGeometry height="26" width="280" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="r6" parent="T_reg" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;html=1;fontSize=13;" value="registered_at  TEXT" vertex="1">
+          <mxGeometry height="26" width="280" y="156" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="c1" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERmandOne;endArrow=ERmandOne;startSize=12;endSize=12;strokeWidth=2;labelBackgroundColor=default;defaultLabelBackgroundColor=page;rounded=0;orthogonalLoop=1;jettySize=auto;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="u1" value="">
+          <mxGeometry relative="1" x="-0.2074" as="geometry">
+            <Array as="points">
+              <mxPoint x="590" y="340" />
+              <mxPoint x="590" y="540" />
+            </Array>
+            <mxPoint x="550" y="541" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="r2" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERzeroToMany;endArrow=ERmandOne;startSize=12;endSize=12;strokeWidth=2;labelBackgroundColor=default;defaultLabelBackgroundColor=page;rounded=0;libavoidRouting=1;orthogonalLoop=1;jettySize=auto;entryX=1;entryY=0.538;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" target="u1" value="">
+          <mxGeometry relative="1" x="-0.2982" as="geometry">
+            <Array as="points">
+              <mxPoint x="620" y="559" />
+              <mxPoint x="620" y="541" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="T_reg" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERzeroToMany;endArrow=ERmandOne;startSize=12;endSize=12;strokeWidth=2;labelBackgroundColor=default;defaultLabelBackgroundColor=page;rounded=0;libavoidRouting=1;orthogonalLoop=1;jettySize=auto;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="k1" value="">
+          <mxGeometry relative="1" x="0.4815" as="geometry">
+            <Array as="points">
+              <mxPoint x="1005" y="585" />
+              <mxPoint x="1005" y="520" />
+            </Array>
+            <mxPoint x="940" y="520" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gsHM-CC3-lbvTprYsIzc-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="UK = unique, NN = not null, CK = check" vertex="1">
+          <mxGeometry height="30" width="230" x="700" y="251" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
