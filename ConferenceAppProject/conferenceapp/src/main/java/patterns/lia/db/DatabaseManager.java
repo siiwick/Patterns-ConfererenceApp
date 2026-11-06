@@ -3,7 +3,6 @@ package patterns.lia.db;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.Objects;
 import java.util.Properties;
 
 import org.sqlite.SQLiteConfig;
@@ -32,7 +31,7 @@ public final class DatabaseManager {
      * Tests pass any url so that they can use a temporary db.
      */
     public DatabaseManager(String url) {
-        this.url = Objects.requireNonNull(url, "url");
+        this.url = url;
         SQLiteConfig config = new SQLiteConfig();
         config.enforceForeignKeys(true);
         config.setBusyTimeout(5000);

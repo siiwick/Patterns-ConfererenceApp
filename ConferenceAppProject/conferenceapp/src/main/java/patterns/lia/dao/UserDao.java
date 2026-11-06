@@ -18,8 +18,7 @@ import patterns.lia.model.User;
 import patterns.lia.utilities.DateTimeUtil;
 
 /**
- * Data access for the {@code users} (profile) and {@code credentials} tables.
- * Only SQL lives here: validation and hashing are done by the service layer.
+ * Data access for the users table.
  */
 public class UserDao {
 
