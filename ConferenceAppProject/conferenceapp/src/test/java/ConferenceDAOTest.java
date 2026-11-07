@@ -2,7 +2,6 @@ import patterns.lia.dao.ConferenceDAO;
 import patterns.lia.db.DatabaseInitializer;
 import patterns.lia.db.DatabaseManager;
 import patterns.lia.model.Conference;
-import patterns.lia.utilities.DateTimeUtil;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,7 +12,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 
-public class ConferenceDAOInsertTest {
+public class ConferenceDAOTest {
     ConferenceDAO dao;
 
     @BeforeEach 
@@ -25,10 +24,16 @@ public class ConferenceDAOInsertTest {
     @Test 
     void testBasicInsert(){
         //necessary to convert back and fourth to get rid of the decimal
-        Conference conference=new Conference(1, "AnyConference", 10000, DateTimeUtil.parse(DateTimeUtil.format(LocalDateTime.now().plusDays(3))), DateTimeUtil.parse(DateTimeUtil.format(LocalDateTime.now().plusDays(6))), "AnyVenue");
+        Conference conference=new Conference(1, "AnyConference", 10000, LocalDateTime.now().plusDays(3), LocalDateTime.now().plusDays(6), "AnyVenue");
         dao.insertConference(conference);
         List<Conference> conferences=dao.getConferences();
         assertTrue(conference.equals(conferences.get(0)));
     }
-    
+    @Test 
+    void testNullInsert(){
+        Conference conference=new Conference(0, null, 0, null, null, null);
+        dao.insertConference(conference);
+        List<Conference> conferences=dao.getConferences();
+        assertEquals(conferences.size(),0);
+    }
 }

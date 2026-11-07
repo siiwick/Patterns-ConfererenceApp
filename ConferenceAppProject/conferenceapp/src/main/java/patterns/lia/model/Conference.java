@@ -1,6 +1,8 @@
 package patterns.lia.model;
 import java.time.LocalDateTime;
 
+import patterns.lia.utilities.DateTimeUtil;
+
 public class Conference {
     private int conferenceId;
     private String title;
@@ -60,6 +62,9 @@ public class Conference {
         if(conferenceId!=conference.getConferenceId()) return false;
         if(!title.equals(conference.getTitle()))return false;
         if(capacity!=conference.getCapacity()) return false;
+        if(!DateTimeUtil.parse(DateTimeUtil.format(startTime)).equals(DateTimeUtil.parse(DateTimeUtil.format(conference.getStartTime())))) return false;
+        if(!DateTimeUtil.parse(DateTimeUtil.format(endTime)).equals(DateTimeUtil.parse(DateTimeUtil.format(conference.getEndTime())))) return false;
+        if(!venue.equals(conference.getVenue())) return false;
         return true;
     }
 }
