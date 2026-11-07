@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="UserDaoTest" time="0.856" tests="23" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="UserDaoTest" time="0.851" tests="23" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="25"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-25\bin"/>
-    <property name="sun.java.command" value="C:\Users\Julien P-H\AppData\Local\Temp\surefire10086879523237903662\surefirebooter-20261107160028501_3.jar C:\Users\Julien P-H\AppData\Local\Temp\surefire10086879523237903662 2026-11-07T16-00-28_419-jvmRun1 surefire-20261107160028501_1tmp surefire_0-20261107160028501_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\Julien P-H\AppData\Local\Temp\surefire14359221011027992546\surefirebooter-20261107163042062_3.jar C:\Users\Julien P-H\AppData\Local\Temp\surefire14359221011027992546 2026-11-07T16-30-41_984-jvmRun1 surefire-20261107163042062_1tmp surefire_0-20261107163042062_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\Julien P-H\Documents\GitHub\Patterns-ConfererenceApp\ConferenceAppProject\conferenceapp\target\test-classes;C:\Users\Julien P-H\Documents\GitHub\Patterns-ConfererenceApp\ConferenceAppProject\conferenceapp\target\classes;C:\Users\Julien P-H\.m2\repository\org\openjfx\javafx-controls\11\javafx-controls-11.jar;C:\Users\Julien P-H\.m2\repository\org\openjfx\javafx-controls\11\javafx-controls-11-win.jar;C:\Users\Julien P-H\.m2\repository\org\openjfx\javafx-graphics\11\javafx-graphics-11.jar;C:\Users\Julien P-H\.m2\repository\org\openjfx\javafx-graphics\11\javafx-graphics-11-win.jar;C:\Users\Julien P-H\.m2\repository\org\openjfx\javafx-base\11\javafx-base-11.jar;C:\Users\Julien P-H\.m2\repository\org\openjfx\javafx-base\11\javafx-base-11-win.jar;C:\Users\Julien P-H\.m2\repository\org\openjfx\javafx-fxml\11\javafx-fxml-11.jar;C:\Users\Julien P-H\.m2\repository\org\openjfx\javafx-fxml\11\javafx-fxml-11-win.jar;C:\Users\Julien P-H\.m2\repository\org\xerial\sqlite-jdbc\3.46.0.0\sqlite-jdbc-3.46.0.0.jar;C:\Users\Julien P-H\.m2\repository\org\slf4j\slf4j-api\1.7.36\slf4j-api-1.7.36.jar;C:\Users\Julien P-H\.m2\repository\org\junit\jupiter\junit-jupiter\6.1.3\junit-jupiter-6.1.3.jar;C:\Users\Julien P-H\.m2\repository\org\junit\jupiter\junit-jupiter-api\6.1.3\junit-jupiter-api-6.1.3.jar;C:\Users\Julien P-H\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\Julien P-H\.m2\repository\org\junit\platform\junit-platform-commons\6.1.3\junit-platform-commons-6.1.3.jar;C:\Users\Julien P-H\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Julien P-H\.m2\repository\org\jspecify\jspecify\1.0.0\jspecify-1.0.0.jar;C:\Users\Julien P-H\.m2\repository\org\junit\jupiter\junit-jupiter-params\6.1.3\junit-jupiter-params-6.1.3.jar;C:\Users\Julien P-H\.m2\repository\org\junit\jupiter\junit-jupiter-engine\6.1.3\junit-jupiter-engine-6.1.3.jar;C:\Users\Julien P-H\.m2\repository\org\junit\platform\junit-platform-engine\6.1.3\junit-platform-engine-6.1.3.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\Julien P-H\AppData\Local\Temp\surefire10086879523237903662\surefirebooter-20261107160028501_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Julien P-H\AppData\Local\Temp\surefire14359221011027992546\surefirebooter-20261107163042062_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="25.0.1+8-LTS-27"/>
@@ -59,8 +59,8 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="69.0"/>
   </properties>
-  <testcase name="testBlankName" classname="UserDaoTest" time="0.033">
-    <system-err><![CDATA[Nov 07, 2026 4:00:29 PM patterns.lia.dao.UserDao failure
+  <testcase name="testBlankName" classname="UserDaoTest" time="0.034">
+    <system-err><![CDATA[Nov 07, 2026 4:30:44 PM patterns.lia.dao.UserDao failure
 SEVERE: Database error while trying to create user
 org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_CHECK] A CHECK constraint failed (CHECK constraint failed: length(trim(full_name)) > 0)
 	at org.sqlite.core.DB.newSQLException(DB.java:1179)
@@ -73,7 +73,7 @@ org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_CHECK] A CHECK constraint failed 
 	at org.sqlite.jdbc3.JDBC3PreparedStatement.executeUpdate(JDBC3PreparedStatement.java:105)
 	at patterns.lia.dao.UserDao.insertUser(UserDao.java:61)
 	at patterns.lia.dao.UserDao.create(UserDao.java:38)
-	at UserDaoTest.lambda$3(UserDaoTest.java:104)
+	at UserDaoTest.lambda$testBlankName$0(UserDaoTest.java:104)
 	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:54)
 	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
 	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3234)
@@ -159,17 +159,17 @@ org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_CHECK] A CHECK constraint failed 
 
 ]]></system-err>
   </testcase>
-  <testcase name="testCantUpdateRole" classname="UserDaoTest" time="0.04"/>
-  <testcase name="testCreateAdminUser" classname="UserDaoTest" time="0.036"/>
-  <testcase name="testDuplicateEmailOnUpdate" classname="UserDaoTest" time="0.041"/>
-  <testcase name="testDuplicateEmail" classname="UserDaoTest" time="0.037"/>
-  <testcase name="testDuplicateUppercaseEmail" classname="UserDaoTest" time="0.039"/>
-  <testcase name="testFindAll" classname="UserDaoTest" time="0.045"/>
+  <testcase name="testCantUpdateRole" classname="UserDaoTest" time="0.039"/>
+  <testcase name="testCreateAdminUser" classname="UserDaoTest" time="0.035"/>
+  <testcase name="testDuplicateEmailOnUpdate" classname="UserDaoTest" time="0.04"/>
+  <testcase name="testDuplicateEmail" classname="UserDaoTest" time="0.038"/>
+  <testcase name="testDuplicateUppercaseEmail" classname="UserDaoTest" time="0.037"/>
+  <testcase name="testFindAll" classname="UserDaoTest" time="0.043"/>
   <testcase name="testFindByRole" classname="UserDaoTest" time="0.044"/>
-  <testcase name="testCredentialsCreation" classname="UserDaoTest" time="0.037"/>
-  <testcase name="testFindByEmailUppercase" classname="UserDaoTest" time="0.035"/>
+  <testcase name="testCredentialsCreation" classname="UserDaoTest" time="0.036"/>
+  <testcase name="testFindByEmailUppercase" classname="UserDaoTest" time="0.036"/>
   <testcase name="testBelowMinAge" classname="UserDaoTest" time="0.035">
-    <system-err><![CDATA[Nov 07, 2026 4:00:29 PM patterns.lia.dao.UserDao failure
+    <system-err><![CDATA[Nov 07, 2026 4:30:44 PM patterns.lia.dao.UserDao failure
 SEVERE: Database error while trying to create user
 org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_CHECK] A CHECK constraint failed (CHECK constraint failed: age BETWEEN 16 AND 120)
 	at org.sqlite.core.DB.newSQLException(DB.java:1179)
@@ -182,7 +182,7 @@ org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_CHECK] A CHECK constraint failed 
 	at org.sqlite.jdbc3.JDBC3PreparedStatement.executeUpdate(JDBC3PreparedStatement.java:105)
 	at patterns.lia.dao.UserDao.insertUser(UserDao.java:61)
 	at patterns.lia.dao.UserDao.create(UserDao.java:38)
-	at UserDaoTest.lambda$2(UserDaoTest.java:96)
+	at UserDaoTest.lambda$testBelowMinAge$0(UserDaoTest.java:96)
 	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:54)
 	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
 	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3234)
@@ -272,7 +272,7 @@ org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_CHECK] A CHECK constraint failed 
   <testcase name="testEmptyFindAll" classname="UserDaoTest" time="0.032"/>
   <testcase name="testUpdateProfile" classname="UserDaoTest" time="0.038"/>
   <testcase name="testUpdateInvalidAge" classname="UserDaoTest" time="0.038">
-    <system-err><![CDATA[Nov 07, 2026 4:00:29 PM patterns.lia.dao.UserDao failure
+    <system-err><![CDATA[Nov 07, 2026 4:30:44 PM patterns.lia.dao.UserDao failure
 SEVERE: Database error while trying to update user
 org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_CHECK] A CHECK constraint failed (CHECK constraint failed: age BETWEEN 16 AND 120)
 	at org.sqlite.core.DB.newSQLException(DB.java:1179)
@@ -284,7 +284,7 @@ org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_CHECK] A CHECK constraint failed 
 	at org.sqlite.jdbc3.JDBC3PreparedStatement.executeLargeUpdate(JDBC3PreparedStatement.java:124)
 	at org.sqlite.jdbc3.JDBC3PreparedStatement.executeUpdate(JDBC3PreparedStatement.java:105)
 	at patterns.lia.dao.UserDao.update(UserDao.java:134)
-	at UserDaoTest.lambda$6(UserDaoTest.java:201)
+	at UserDaoTest.lambda$testUpdateInvalidAge$0(UserDaoTest.java:201)
 	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:54)
 	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
 	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3234)
@@ -370,15 +370,15 @@ org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_CHECK] A CHECK constraint failed 
 
 ]]></system-err>
   </testcase>
-  <testcase name="testUpdateUnkown" classname="UserDaoTest" time="0.033"/>
-  <testcase name="testUnkownId" classname="UserDaoTest" time="0.032"/>
-  <testcase name="testFindByEmail" classname="UserDaoTest" time="0.038"/>
-  <testcase name="testCreateUser" classname="UserDaoTest" time="0.036"/>
-  <testcase name="testUnkownEmail" classname="UserDaoTest" time="0.032"/>
-  <testcase name="testDeleteUser" classname="UserDaoTest" time="0.039"/>
-  <testcase name="testDeleteUnknown" classname="UserDaoTest" time="0.031"/>
-  <testcase name="testDeleteWhileRegistered" classname="UserDaoTest" time="0.043">
-    <system-err><![CDATA[Nov 07, 2026 4:00:30 PM patterns.lia.dao.UserDao failure
+  <testcase name="testUpdateUnkown" classname="UserDaoTest" time="0.032"/>
+  <testcase name="testUnkownId" classname="UserDaoTest" time="0.031"/>
+  <testcase name="testFindByEmail" classname="UserDaoTest" time="0.035"/>
+  <testcase name="testCreateUser" classname="UserDaoTest" time="0.042"/>
+  <testcase name="testUnkownEmail" classname="UserDaoTest" time="0.034"/>
+  <testcase name="testDeleteUser" classname="UserDaoTest" time="0.04"/>
+  <testcase name="testDeleteUnknown" classname="UserDaoTest" time="0.033"/>
+  <testcase name="testDeleteWhileRegistered" classname="UserDaoTest" time="0.042">
+    <system-err><![CDATA[Nov 07, 2026 4:30:44 PM patterns.lia.dao.UserDao failure
 SEVERE: Database error while trying to delete user
 org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_TRIGGER] A RAISE function within a trigger fired, causing the SQL statement to abort (FOREIGN KEY constraint failed)
 	at org.sqlite.core.DB.newSQLException(DB.java:1179)
@@ -390,7 +390,7 @@ org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_TRIGGER] A RAISE function within 
 	at org.sqlite.jdbc3.JDBC3PreparedStatement.executeLargeUpdate(JDBC3PreparedStatement.java:124)
 	at org.sqlite.jdbc3.JDBC3PreparedStatement.executeUpdate(JDBC3PreparedStatement.java:105)
 	at patterns.lia.dao.UserDao.delete(UserDao.java:148)
-	at UserDaoTest.lambda$7(UserDaoTest.java:242)
+	at UserDaoTest.lambda$testDeleteWhileRegistered$0(UserDaoTest.java:242)
 	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:54)
 	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
 	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3234)
