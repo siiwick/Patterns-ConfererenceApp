@@ -34,8 +34,12 @@ public class ConferenceDAO {
             PreparedStatement statement=connection.prepareStatement(selectConf)){
             statement.setInt(1, id);
             ResultSet results=statement.executeQuery();
-            Conference conference=new Conference(results.getInt("conference_id"),results.getString("title"),results.getInt("capacity"),DateTimeUtil.parse(results.getString("start_datetime")),DateTimeUtil.parse(results.getString("end_datetime")),results.getString("venue"));
-            return conference;
+            Conference conference;
+            if(results.next()) {
+                conference=new Conference(results.getInt("conference_id"),results.getString("title"),results.getInt("capacity"),DateTimeUtil.parse(results.getString("start_datetime")),DateTimeUtil.parse(results.getString("end_datetime")),results.getString("venue"));
+                return conference;
+            }
+            else return null;
         }catch(SQLException e){
             DBLogger.log("Failed to get conference by ID: "+e);
             return null;

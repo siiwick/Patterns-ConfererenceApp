@@ -6,6 +6,7 @@ import patterns.lia.model.Conference;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.LocalDateTime;
@@ -21,19 +22,64 @@ public class ConferenceDAOTest {
         DatabaseInitializer.reset(dbm);
         dao=new ConferenceDAO(dbm);
     }
+    //Insert + get all
     @Test 
-    void testBasicInsert(){
-        //necessary to convert back and fourth to get rid of the decimal
+    void testBasicInsertGet(){
         Conference conference=new Conference(1, "AnyConference", 10000, LocalDateTime.now().plusDays(3), LocalDateTime.now().plusDays(6), "AnyVenue");
         dao.insertConference(conference);
         List<Conference> conferences=dao.getConferences();
         assertTrue(conference.equals(conferences.get(0)));
     }
     @Test 
-    void testNullInsert(){
+    void testNullInsertGet(){
         Conference conference=new Conference(0, null, 0, null, null, null);
         dao.insertConference(conference);
         List<Conference> conferences=dao.getConferences();
         assertEquals(conferences.size(),0);
+    }
+    //Inser + get By ID
+    @Test 
+    void testGetByIdExists(){
+        Conference conference=new Conference(1, "AnyConference", 10000, LocalDateTime.now().plusDays(3), LocalDateTime.now().plusDays(6), "AnyVenue");
+        dao.insertConference(conference);
+        Conference getConference=dao.getConferenceById(1);
+        assertTrue(conference.equals(getConference));
+    }
+    @Test 
+    void testGetByIdNotExists(){
+        Conference conference=new Conference(1, "AnyConference", 10000, LocalDateTime.now().plusDays(3), LocalDateTime.now().plusDays(6), "AnyVenue");
+        dao.insertConference(conference);
+        Conference getConference=dao.getConferenceById(2);
+        assertNull(getConference);
+    }
+    //Delete
+    @Test 
+    void testDeleteExistsGetById(){
+        Conference conference=new Conference(1, "AnyConference", 10000, LocalDateTime.now().plusDays(3), LocalDateTime.now().plusDays(6), "AnyVenue");
+        dao.insertConference(conference);
+        dao.delete(1);
+        Conference getConference=dao.getConferenceById(1);
+        assertNull(getConference);
+    }
+    @Test 
+    void testDeleteExistsGetAll(){
+        Conference[] conferences={new Conference(1, "AnyConference", 10000, LocalDateTime.now().plusDays(3), LocalDateTime.now().plusDays(6), "AnyVenue"),new Conference(2, "GenericConference", 7000, LocalDateTime.now().plusDays(8), LocalDateTime.now().plusDays(10), "ConventionCenter"),new Conference(2, "Convention Number Three", 9000, LocalDateTime.now().plusWeeks(4), LocalDateTime.now().plusWeeks(4).plusDays(2), "City Convention Center")};
+        for(Conference conference:conferences){dao.insertConference(conference);}
+        dao.delete(2);
+        List<Conference> getConferences=dao.getConferences();
+        Boolean isDeleted=true;
+        for(Conference conference:getConferences){if(conference.equals(conferences[1])) isDeleted=false;}
+        assertTrue(isDeleted);;
+    }
+    //Update 
+    @Test 
+    void testUpdateExists(){
+        Conference conference=new Conference(1, "AnyConference", 10000, LocalDateTime.now().plusDays(3), LocalDateTime.now().plusDays(6), "AnyVenue");
+        dao.insertConference(conference);
+        conference.setTitle("Not just Any Conference");
+        conference.setCapacity(20000);
+        dao.update(conference);
+        Conference getConference=dao.getConferenceById(1);
+        assertTrue(conference.equals(getConference));
     }
 }
