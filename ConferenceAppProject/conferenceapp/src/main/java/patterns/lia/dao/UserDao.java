@@ -82,8 +82,7 @@ public class UserDao {
         String sql = "SELECT * FROM users WHERE user_id = ?";
         try (Connection connection = db.getConnection(); PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setLong(1, id);
-            ps.executeQuery();
-            try (ResultSet rs = ps.getResultSet()) {
+            try (ResultSet rs = ps.executeQuery()) {
                 return rs.next() ? map(rs) : null;
             }
         } catch (SQLException e) {
@@ -95,8 +94,7 @@ public class UserDao {
         String sql = "SELECT * FROM users WHERE email = ?";
         try (Connection connection = db.getConnection(); PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setString(1, email);
-            ps.executeQuery();
-            try (ResultSet rs = ps.getResultSet()) {
+            try (ResultSet rs = ps.executeQuery()) {
                 return rs.next() ? map(rs) : null;
             }
         } catch (SQLException e) {

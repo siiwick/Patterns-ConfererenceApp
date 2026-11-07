@@ -29,8 +29,7 @@ public class CredentialsDao {
         try (Connection connection = db.getConnection(); PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setLong(1, userId);
             try (ResultSet rs = ps.executeQuery()) {
-                rs.next();
-                return rs.getString("password_hash");
+                return rs.next() ? rs.getString("password_hash") : null;
             }
         } catch (SQLException e) {
             throw failure("read credentials", e);
