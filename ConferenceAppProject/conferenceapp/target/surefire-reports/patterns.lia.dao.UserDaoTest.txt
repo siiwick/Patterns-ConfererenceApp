@@ -1,0 +1,246 @@
+-------------------------------------------------------------------------------
+Test set: patterns.lia.dao.UserDaoTest
+-------------------------------------------------------------------------------
+Tests run: 25, Failures: 0, Errors: 21, Skipped: 0, Time elapsed: 0.610 s <<< FAILURE! -- in patterns.lia.dao.UserDaoTest
+patterns.lia.dao.UserDaoTest.update_emailUsedByAnotherUser_throwsDuplicateEmailException -- Time elapsed: 0.027 s <<< ERROR!
+patterns.lia.exceptions.DataAccessException: error.database
+	at patterns.lia.dao.UserDao.failure(UserDao.java:185)
+	at patterns.lia.dao.UserDao.findById(UserDao.java:90)
+	at patterns.lia.dao.UserDao.create(UserDao.java:41)
+	at patterns.lia.dao.UserDaoTest.newParticipant(UserDaoTest.java:42)
+	at patterns.lia.dao.UserDaoTest.update_emailUsedByAnotherUser_throwsDuplicateEmailException(UserDaoTest.java:209)
+Caused by: java.sql.SQLException: ResultSet already requested
+	at org.sqlite.jdbc3.JDBC3Statement.getResultSet(JDBC3Statement.java:162)
+	at patterns.lia.dao.UserDao.findById(UserDao.java:86)
+	... 3 more
+
+patterns.lia.dao.UserDaoTest.update_doesNotChangeRole -- Time elapsed: 0.027 s <<< ERROR!
+patterns.lia.exceptions.DataAccessException: error.database
+	at patterns.lia.dao.UserDao.failure(UserDao.java:185)
+	at patterns.lia.dao.UserDao.findById(UserDao.java:90)
+	at patterns.lia.dao.UserDao.create(UserDao.java:41)
+	at patterns.lia.dao.UserDaoTest.newParticipant(UserDaoTest.java:42)
+	at patterns.lia.dao.UserDaoTest.update_doesNotChangeRole(UserDaoTest.java:192)
+Caused by: java.sql.SQLException: ResultSet already requested
+	at org.sqlite.jdbc3.JDBC3Statement.getResultSet(JDBC3Statement.java:162)
+	at patterns.lia.dao.UserDao.findById(UserDao.java:86)
+	... 3 more
+
+patterns.lia.dao.UserDaoTest.findByEmail_isCaseInsensitive -- Time elapsed: 0.025 s <<< ERROR!
+patterns.lia.exceptions.DataAccessException: error.database
+	at patterns.lia.dao.UserDao.failure(UserDao.java:185)
+	at patterns.lia.dao.UserDao.findById(UserDao.java:90)
+	at patterns.lia.dao.UserDao.create(UserDao.java:41)
+	at patterns.lia.dao.UserDaoTest.newParticipant(UserDaoTest.java:42)
+	at patterns.lia.dao.UserDaoTest.findByEmail_isCaseInsensitive(UserDaoTest.java:139)
+Caused by: java.sql.SQLException: ResultSet already requested
+	at org.sqlite.jdbc3.JDBC3Statement.getResultSet(JDBC3Statement.java:162)
+	at patterns.lia.dao.UserDao.findById(UserDao.java:86)
+	... 3 more
+
+patterns.lia.dao.UserDaoTest.create_storesPasswordHashInSeparateCredentialsTable -- Time elapsed: 0.026 s <<< ERROR!
+patterns.lia.exceptions.DataAccessException: error.database
+	at patterns.lia.dao.UserDao.failure(UserDao.java:185)
+	at patterns.lia.dao.UserDao.findById(UserDao.java:90)
+	at patterns.lia.dao.UserDao.create(UserDao.java:41)
+	at patterns.lia.dao.UserDaoTest.create_storesPasswordHashInSeparateCredentialsTable(UserDaoTest.java:68)
+Caused by: java.sql.SQLException: ResultSet already requested
+	at org.sqlite.jdbc3.JDBC3Statement.getResultSet(JDBC3Statement.java:162)
+	at patterns.lia.dao.UserDao.findById(UserDao.java:86)
+	... 2 more
+
+patterns.lia.dao.UserDaoTest.findAll_returnsEveryoneOrderedByName -- Time elapsed: 0.024 s <<< ERROR!
+patterns.lia.exceptions.DataAccessException: error.database
+	at patterns.lia.dao.UserDao.failure(UserDao.java:185)
+	at patterns.lia.dao.UserDao.findById(UserDao.java:90)
+	at patterns.lia.dao.UserDao.create(UserDao.java:41)
+	at patterns.lia.dao.UserDaoTest.newParticipant(UserDaoTest.java:42)
+	at patterns.lia.dao.UserDaoTest.findAll_returnsEveryoneOrderedByName(UserDaoTest.java:150)
+Caused by: java.sql.SQLException: ResultSet already requested
+	at org.sqlite.jdbc3.JDBC3Statement.getResultSet(JDBC3Statement.java:162)
+	at patterns.lia.dao.UserDao.findById(UserDao.java:86)
+	... 3 more
+
+patterns.lia.dao.UserDaoTest.delete_removesUserAndItsCredentials -- Time elapsed: 0.026 s <<< ERROR!
+patterns.lia.exceptions.DataAccessException: error.database
+	at patterns.lia.dao.UserDao.failure(UserDao.java:185)
+	at patterns.lia.dao.UserDao.findById(UserDao.java:90)
+	at patterns.lia.dao.UserDao.create(UserDao.java:41)
+	at patterns.lia.dao.UserDaoTest.newParticipant(UserDaoTest.java:42)
+	at patterns.lia.dao.UserDaoTest.delete_removesUserAndItsCredentials(UserDaoTest.java:235)
+Caused by: java.sql.SQLException: ResultSet already requested
+	at org.sqlite.jdbc3.JDBC3Statement.getResultSet(JDBC3Statement.java:162)
+	at patterns.lia.dao.UserDao.findById(UserDao.java:86)
+	... 3 more
+
+patterns.lia.dao.UserDaoTest.delete_userWithRegistration_isRefusedByForeignKey -- Time elapsed: 0.024 s <<< ERROR!
+patterns.lia.exceptions.DataAccessException: error.database
+	at patterns.lia.dao.UserDao.failure(UserDao.java:185)
+	at patterns.lia.dao.UserDao.findById(UserDao.java:90)
+	at patterns.lia.dao.UserDao.create(UserDao.java:41)
+	at patterns.lia.dao.UserDaoTest.newParticipant(UserDaoTest.java:42)
+	at patterns.lia.dao.UserDaoTest.delete_userWithRegistration_isRefusedByForeignKey(UserDaoTest.java:250)
+Caused by: java.sql.SQLException: ResultSet already requested
+	at org.sqlite.jdbc3.JDBC3Statement.getResultSet(JDBC3Statement.java:162)
+	at patterns.lia.dao.UserDao.findById(UserDao.java:86)
+	... 3 more
+
+patterns.lia.dao.UserDaoTest.findByEmail_existingUser_returnsIt -- Time elapsed: 0.025 s <<< ERROR!
+patterns.lia.exceptions.DataAccessException: error.database
+	at patterns.lia.dao.UserDao.failure(UserDao.java:185)
+	at patterns.lia.dao.UserDao.findById(UserDao.java:90)
+	at patterns.lia.dao.UserDao.create(UserDao.java:41)
+	at patterns.lia.dao.UserDaoTest.newParticipant(UserDaoTest.java:42)
+	at patterns.lia.dao.UserDaoTest.findByEmail_existingUser_returnsIt(UserDaoTest.java:133)
+Caused by: java.sql.SQLException: ResultSet already requested
+	at org.sqlite.jdbc3.JDBC3Statement.getResultSet(JDBC3Statement.java:162)
+	at patterns.lia.dao.UserDao.findById(UserDao.java:86)
+	... 3 more
+
+patterns.lia.dao.UserDaoTest.update_invalidAge_throwsDataAccessException -- Time elapsed: 0.024 s <<< ERROR!
+patterns.lia.exceptions.DataAccessException: error.database
+	at patterns.lia.dao.UserDao.failure(UserDao.java:185)
+	at patterns.lia.dao.UserDao.findById(UserDao.java:90)
+	at patterns.lia.dao.UserDao.create(UserDao.java:41)
+	at patterns.lia.dao.UserDaoTest.newParticipant(UserDaoTest.java:42)
+	at patterns.lia.dao.UserDaoTest.update_invalidAge_throwsDataAccessException(UserDaoTest.java:218)
+Caused by: java.sql.SQLException: ResultSet already requested
+	at org.sqlite.jdbc3.JDBC3Statement.getResultSet(JDBC3Statement.java:162)
+	at patterns.lia.dao.UserDao.findById(UserDao.java:86)
+	... 3 more
+
+patterns.lia.dao.UserDaoTest.create_duplicateEmail_throwsDuplicateEmailException -- Time elapsed: 0.025 s <<< ERROR!
+patterns.lia.exceptions.DataAccessException: error.database
+	at patterns.lia.dao.UserDao.failure(UserDao.java:185)
+	at patterns.lia.dao.UserDao.findById(UserDao.java:90)
+	at patterns.lia.dao.UserDao.create(UserDao.java:41)
+	at patterns.lia.dao.UserDaoTest.newParticipant(UserDaoTest.java:42)
+	at patterns.lia.dao.UserDaoTest.create_duplicateEmail_throwsDuplicateEmailException(UserDaoTest.java:82)
+Caused by: java.sql.SQLException: ResultSet already requested
+	at org.sqlite.jdbc3.JDBC3Statement.getResultSet(JDBC3Statement.java:162)
+	at patterns.lia.dao.UserDao.findById(UserDao.java:86)
+	... 3 more
+
+patterns.lia.dao.UserDaoTest.update_keepingOwnEmail_succeeds -- Time elapsed: 0.027 s <<< ERROR!
+patterns.lia.exceptions.DataAccessException: error.database
+	at patterns.lia.dao.UserDao.failure(UserDao.java:185)
+	at patterns.lia.dao.UserDao.findById(UserDao.java:90)
+	at patterns.lia.dao.UserDao.create(UserDao.java:41)
+	at patterns.lia.dao.UserDaoTest.newParticipant(UserDaoTest.java:42)
+	at patterns.lia.dao.UserDaoTest.update_keepingOwnEmail_succeeds(UserDaoTest.java:202)
+Caused by: java.sql.SQLException: ResultSet already requested
+	at org.sqlite.jdbc3.JDBC3Statement.getResultSet(JDBC3Statement.java:162)
+	at patterns.lia.dao.UserDao.findById(UserDao.java:86)
+	... 3 more
+
+patterns.lia.dao.UserDaoTest.create_adminRoleIsPersisted -- Time elapsed: 0.024 s <<< ERROR!
+patterns.lia.exceptions.DataAccessException: error.database
+	at patterns.lia.dao.UserDao.failure(UserDao.java:185)
+	at patterns.lia.dao.UserDao.findById(UserDao.java:90)
+	at patterns.lia.dao.UserDao.create(UserDao.java:41)
+	at patterns.lia.dao.UserDaoTest.create_adminRoleIsPersisted(UserDaoTest.java:76)
+Caused by: java.sql.SQLException: ResultSet already requested
+	at org.sqlite.jdbc3.JDBC3Statement.getResultSet(JDBC3Statement.java:162)
+	at patterns.lia.dao.UserDao.findById(UserDao.java:86)
+	... 2 more
+
+patterns.lia.dao.UserDaoTest.findById_unknownId_returnsNull -- Time elapsed: 0.020 s <<< ERROR!
+patterns.lia.exceptions.DataAccessException: error.database
+	at patterns.lia.dao.UserDao.failure(UserDao.java:185)
+	at patterns.lia.dao.UserDao.findById(UserDao.java:90)
+	at patterns.lia.dao.UserDaoTest.findById_unknownId_returnsNull(UserDaoTest.java:128)
+Caused by: java.sql.SQLException: ResultSet already requested
+	at org.sqlite.jdbc3.JDBC3Statement.getResultSet(JDBC3Statement.java:162)
+	at patterns.lia.dao.UserDao.findById(UserDao.java:86)
+	... 1 more
+
+patterns.lia.dao.UserDaoTest.findByEmail_unknownEmail_returnsNull -- Time elapsed: 0.022 s <<< ERROR!
+patterns.lia.exceptions.DataAccessException: error.database
+	at patterns.lia.dao.UserDao.failure(UserDao.java:185)
+	at patterns.lia.dao.UserDao.findByEmail(UserDao.java:103)
+	at patterns.lia.dao.UserDaoTest.findByEmail_unknownEmail_returnsNull(UserDaoTest.java:145)
+Caused by: java.sql.SQLException: ResultSet already requested
+	at org.sqlite.jdbc3.JDBC3Statement.getResultSet(JDBC3Statement.java:162)
+	at patterns.lia.dao.UserDao.findByEmail(UserDao.java:99)
+	... 1 more
+
+patterns.lia.dao.UserDaoTest.create_duplicateEmail_leavesNoExtraRowsBehind -- Time elapsed: 0.026 s <<< ERROR!
+patterns.lia.exceptions.DataAccessException: error.database
+	at patterns.lia.dao.UserDao.failure(UserDao.java:185)
+	at patterns.lia.dao.UserDao.findById(UserDao.java:90)
+	at patterns.lia.dao.UserDao.create(UserDao.java:41)
+	at patterns.lia.dao.UserDaoTest.newParticipant(UserDaoTest.java:42)
+	at patterns.lia.dao.UserDaoTest.create_duplicateEmail_leavesNoExtraRowsBehind(UserDaoTest.java:96)
+Caused by: java.sql.SQLException: ResultSet already requested
+	at org.sqlite.jdbc3.JDBC3Statement.getResultSet(JDBC3Statement.java:162)
+	at patterns.lia.dao.UserDao.findById(UserDao.java:86)
+	... 3 more
+
+patterns.lia.dao.UserDaoTest.create_returnsSavedUserWithGeneratedIdAndTimestamp -- Time elapsed: 0.025 s <<< ERROR!
+patterns.lia.exceptions.DataAccessException: error.database
+	at patterns.lia.dao.UserDao.failure(UserDao.java:185)
+	at patterns.lia.dao.UserDao.findById(UserDao.java:90)
+	at patterns.lia.dao.UserDao.create(UserDao.java:41)
+	at patterns.lia.dao.UserDaoTest.create_returnsSavedUserWithGeneratedIdAndTimestamp(UserDaoTest.java:56)
+Caused by: java.sql.SQLException: ResultSet already requested
+	at org.sqlite.jdbc3.JDBC3Statement.getResultSet(JDBC3Statement.java:162)
+	at patterns.lia.dao.UserDao.findById(UserDao.java:86)
+	... 2 more
+
+patterns.lia.dao.UserDaoTest.findById_existingUser_returnsIt -- Time elapsed: 0.024 s <<< ERROR!
+patterns.lia.exceptions.DataAccessException: error.database
+	at patterns.lia.dao.UserDao.failure(UserDao.java:185)
+	at patterns.lia.dao.UserDao.findById(UserDao.java:90)
+	at patterns.lia.dao.UserDao.create(UserDao.java:41)
+	at patterns.lia.dao.UserDaoTest.newParticipant(UserDaoTest.java:42)
+	at patterns.lia.dao.UserDaoTest.findById_existingUser_returnsIt(UserDaoTest.java:122)
+Caused by: java.sql.SQLException: ResultSet already requested
+	at org.sqlite.jdbc3.JDBC3Statement.getResultSet(JDBC3Statement.java:162)
+	at patterns.lia.dao.UserDao.findById(UserDao.java:86)
+	... 3 more
+
+patterns.lia.dao.UserDaoTest.update_changesProfileFields -- Time elapsed: 0.026 s <<< ERROR!
+patterns.lia.exceptions.DataAccessException: error.database
+	at patterns.lia.dao.UserDao.failure(UserDao.java:185)
+	at patterns.lia.dao.UserDao.findById(UserDao.java:90)
+	at patterns.lia.dao.UserDao.create(UserDao.java:41)
+	at patterns.lia.dao.UserDaoTest.newParticipant(UserDaoTest.java:42)
+	at patterns.lia.dao.UserDaoTest.update_changesProfileFields(UserDaoTest.java:177)
+Caused by: java.sql.SQLException: ResultSet already requested
+	at org.sqlite.jdbc3.JDBC3Statement.getResultSet(JDBC3Statement.java:162)
+	at patterns.lia.dao.UserDao.findById(UserDao.java:86)
+	... 3 more
+
+patterns.lia.dao.UserDaoTest.create_ageBelowMinimum_isRejectedAndRolledBack -- Time elapsed: 0.023 s <<< ERROR!
+patterns.lia.exceptions.DataAccessException: error.database
+	at patterns.lia.dao.UserDao.failure(UserDao.java:185)
+	at patterns.lia.dao.UserDao.findByEmail(UserDao.java:103)
+	at patterns.lia.dao.UserDaoTest.create_ageBelowMinimum_isRejectedAndRolledBack(UserDaoTest.java:108)
+Caused by: java.sql.SQLException: ResultSet already requested
+	at org.sqlite.jdbc3.JDBC3Statement.getResultSet(JDBC3Statement.java:162)
+	at patterns.lia.dao.UserDao.findByEmail(UserDao.java:99)
+	... 1 more
+
+patterns.lia.dao.UserDaoTest.findByRole_returnsOnlyMatchingRole -- Time elapsed: 0.026 s <<< ERROR!
+patterns.lia.exceptions.DataAccessException: error.database
+	at patterns.lia.dao.UserDao.failure(UserDao.java:185)
+	at patterns.lia.dao.UserDao.findById(UserDao.java:90)
+	at patterns.lia.dao.UserDao.create(UserDao.java:41)
+	at patterns.lia.dao.UserDaoTest.findByRole_returnsOnlyMatchingRole(UserDaoTest.java:165)
+Caused by: java.sql.SQLException: ResultSet already requested
+	at org.sqlite.jdbc3.JDBC3Statement.getResultSet(JDBC3Statement.java:162)
+	at patterns.lia.dao.UserDao.findById(UserDao.java:86)
+	... 2 more
+
+patterns.lia.dao.UserDaoTest.create_duplicateEmailWithDifferentCase_throwsDuplicateEmailException -- Time elapsed: 0.025 s <<< ERROR!
+patterns.lia.exceptions.DataAccessException: error.database
+	at patterns.lia.dao.UserDao.failure(UserDao.java:185)
+	at patterns.lia.dao.UserDao.findById(UserDao.java:90)
+	at patterns.lia.dao.UserDao.create(UserDao.java:41)
+	at patterns.lia.dao.UserDaoTest.newParticipant(UserDaoTest.java:42)
+	at patterns.lia.dao.UserDaoTest.create_duplicateEmailWithDifferentCase_throwsDuplicateEmailException(UserDaoTest.java:89)
+Caused by: java.sql.SQLException: ResultSet already requested
+	at org.sqlite.jdbc3.JDBC3Statement.getResultSet(JDBC3Statement.java:162)
+	at patterns.lia.dao.UserDao.findById(UserDao.java:86)
+	... 3 more
+
