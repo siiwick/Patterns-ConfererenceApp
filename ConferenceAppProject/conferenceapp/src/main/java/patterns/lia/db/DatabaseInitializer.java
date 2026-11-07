@@ -20,9 +20,7 @@ public final class DatabaseInitializer {
     private DatabaseInitializer() {
     }
 
-    /**
-     * Creates the database only if the schema does not exist yet.
-     */
+    //Creates the database only if the schema does not exist yet.
     public static void initializeIfMissing(DatabaseManager db) {
         if (!tableExists(db, "users")) {
             reset(db);

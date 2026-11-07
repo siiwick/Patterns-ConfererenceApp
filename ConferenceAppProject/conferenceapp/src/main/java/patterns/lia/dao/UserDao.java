@@ -13,8 +13,8 @@ import java.util.logging.Logger;
 import patterns.lia.db.DatabaseManager;
 import patterns.lia.exceptions.DataAccessException;
 import patterns.lia.exceptions.DuplicateEmailException;
-import patterns.lia.model.Role;
 import patterns.lia.model.User;
+import patterns.lia.model.enums.Role;
 import patterns.lia.utilities.DateTimeUtil;
 
 /**
@@ -22,7 +22,7 @@ import patterns.lia.utilities.DateTimeUtil;
  */
 public class UserDao {
 
-    /***private static final Logger LOG = Logger.getLogger(UserDao.class.getName());
+    private static final Logger LOG = Logger.getLogger(UserDao.class.getName());
 
     private final DatabaseManager db;
 
@@ -54,10 +54,10 @@ public class UserDao {
     private static long insertUser(Connection connection, User user) throws SQLException {
         String sql = "INSERT INTO users (full_name, email, age, role) VALUES (?, ?, ?, ?)";
         try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-            ps.setString(1, user.fullName());
-            ps.setString(2, user.email());
-            ps.setInt(3, user.age());
-            ps.setString(4, user.role().name());
+            ps.setString(1, user.getFullName());
+            ps.setString(2, user.getEmail());
+            ps.setInt(3, user.getAge());
+            ps.setString(4, user.getRole().name());
             ps.executeUpdate();
             try (ResultSet keys = ps.getGeneratedKeys()) {
                 if (!keys.next()) {
@@ -129,10 +129,10 @@ public class UserDao {
     public boolean update(User user) {
         String sql = "UPDATE users SET full_name = ?, email = ?, age = ? WHERE user_id = ?";
         try (Connection connection = db.getConnection(); PreparedStatement ps = connection.prepareStatement(sql)) {
-            ps.setString(1, user.fullName());
-            ps.setString(2, user.email());
-            ps.setInt(3, user.age());
-            ps.setLong(4, user.id());
+            ps.setString(1, user.getFullName());
+            ps.setString(2, user.getEmail());
+            ps.setInt(3, user.getAge());
+            ps.setLong(4, user.getId());
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
             if (isDuplicateEmail(e)) {
@@ -183,5 +183,5 @@ public class UserDao {
     private static DataAccessException failure(String operation, SQLException e) {
         LOG.log(Level.SEVERE, "Database error while trying to " + operation, e);
         return new DataAccessException(e);
-    }***/
+    }
 }

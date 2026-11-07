@@ -20,16 +20,12 @@ public final class DatabaseManager {
     private final String url;
     private final Properties properties;
 
-    /**
-     * Normal app uses the real database file.
-     */
+    //Normal app uses the real database file.
     public DatabaseManager() {
         this(DEFAULT_URL);
     }
 
-    /**
-     * Tests pass any url so that they can use a temporary db.
-     */
+    //Tests pass any url so that they can use a temporary db.
     public DatabaseManager(String url) {
         this.url = url;
         SQLiteConfig config = new SQLiteConfig();
