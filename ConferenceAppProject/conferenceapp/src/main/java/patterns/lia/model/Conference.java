@@ -52,5 +52,14 @@ public class Conference {
     public void setVenue(String venue) {
         this.venue = venue;
     }
-    
+    @Override
+    public String toString() {
+        return conferenceId+" | "+title+" | "+startTime+" | "+endTime+" | "+venue;
+    }
+    public boolean equals(Conference conference){
+        if(conferenceId!=conference.getConferenceId()) return false;
+        if(!title.equals(conference.getTitle()))return false;
+        if(capacity!=conference.getCapacity()) return false;
+        return true;
+    }
 }

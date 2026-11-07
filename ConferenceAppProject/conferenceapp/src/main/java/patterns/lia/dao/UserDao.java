@@ -22,7 +22,7 @@ import patterns.lia.utilities.DateTimeUtil;
  */
 public class UserDao {
 
-    private static final Logger LOG = Logger.getLogger(UserDao.class.getName());
+    /***private static final Logger LOG = Logger.getLogger(UserDao.class.getName());
 
     private final DatabaseManager db;
 
@@ -183,5 +183,5 @@ public class UserDao {
     private static DataAccessException failure(String operation, SQLException e) {
         LOG.log(Level.SEVERE, "Database error while trying to " + operation, e);
         return new DataAccessException(e);
-    }
+    }***/
 }
