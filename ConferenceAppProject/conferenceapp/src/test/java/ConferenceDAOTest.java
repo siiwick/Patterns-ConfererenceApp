@@ -11,15 +11,7 @@ import patterns.lia.dao.ConferenceDAO;
 import patterns.lia.db.DatabaseInitializer;
 import patterns.lia.db.DatabaseManager;
 import patterns.lia.model.Conference;
-
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.BeforeEach;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertNull;
-
-import java.time.LocalDateTime;
-import java.util.List;
 
 
 public class ConferenceDAOTest {
@@ -73,7 +65,7 @@ public class ConferenceDAOTest {
     }
     @Test 
     void testDeleteExistsGetAll(){
-        Conference[] conferences={new Conference(1, "AnyConference", 10000, LocalDateTime.now().plusDays(3), LocalDateTime.now().plusDays(6), "AnyVenue"),new Conference(2, "GenericConference", 7000, LocalDateTime.now().plusDays(8), LocalDateTime.now().plusDays(10), "ConventionCenter"),new Conference(2, "Convention Number Three", 9000, LocalDateTime.now().plusWeeks(4), LocalDateTime.now().plusWeeks(4).plusDays(2), "City Convention Center")};
+        Conference[] conferences={new Conference(1, "AnyConference", 10000, LocalDateTime.now().plusDays(3), LocalDateTime.now().plusDays(6), "AnyVenue"),new Conference(2, "GenericConference", 7000, LocalDateTime.now().plusDays(8), LocalDateTime.now().plusDays(10), "ConventionCenter"),new Conference(3, "Convention Number Three", 9000, LocalDateTime.now().plusWeeks(4), LocalDateTime.now().plusWeeks(4).plusDays(2), "City Convention Center")};
         for(Conference conference:conferences){dao.insertConference(conference);}
         dao.delete(2);
         List<Conference> getConferences=dao.getConferences();
