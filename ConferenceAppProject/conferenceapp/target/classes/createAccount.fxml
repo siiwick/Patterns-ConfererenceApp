@@ -60,7 +60,7 @@
       </VBox>
       <HBox alignment="CENTER" spacing="10.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="41.0" prefWidth="112.0" style="-fx-border-radius: 100;" text="Create Account" />
+            <Button mnemonicParsing="false" defaultButton="true" prefHeight="41.0" prefWidth="112.0" style="-fx-border-radius: 100;" text="Create Account" />
             <Button mnemonicParsing="false" prefHeight="41.0" prefWidth="73.0" style="-fx-border-radius: 100;" text="Exit" />
          </children>
          <padding>

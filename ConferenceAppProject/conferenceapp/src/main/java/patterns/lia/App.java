@@ -15,8 +15,8 @@ public class App extends Application {
         DatabaseInitializer.initializeIfMissing(db);
 
         FXMLLoader loader = new FXMLLoader(App.class.getResource("/login.fxml"));
-        Scene scene = new Scene(loader.load(), 450, 450);
-        stage.setTitle("Hello World");
+        Scene scene = new Scene(loader.load(), 450, 520);
+        stage.setTitle("Login");
         stage.setScene(scene);
         stage.show();
     }

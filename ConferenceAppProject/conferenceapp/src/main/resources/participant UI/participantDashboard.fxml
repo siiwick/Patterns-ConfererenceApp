@@ -28,11 +28,11 @@
                   </Label>
                </children>
             </HBox>
-            <Label text="Username" />
+            <Label fx:id="usernameLabel" text="Username" />
             <HBox alignment="CENTER_RIGHT" spacing="5.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="82.0" text="Logout" />
-                  <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="46.0" text="Exit" />
+                  <Button mnemonicParsing="false" onAction="#logout" prefHeight="26.0" prefWidth="82.0" text="Logout" />
+                  <Button mnemonicParsing="false" onAction="#exit" prefHeight="26.0" prefWidth="46.0" text="Exit" />
                   <Hyperlink text="🌐 Language" />
                </children>
             </HBox>
