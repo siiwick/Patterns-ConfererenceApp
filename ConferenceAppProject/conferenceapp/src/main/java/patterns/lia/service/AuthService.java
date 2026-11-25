@@ -4,6 +4,7 @@ import patterns.lia.dao.CredentialsDao;
 import patterns.lia.dao.UserDao;
 import patterns.lia.db.DatabaseManager;
 import patterns.lia.model.User;
+import patterns.lia.model.enums.Role;
 import patterns.lia.utilities.PasswordHasher;
 
 /**
@@ -34,5 +35,11 @@ public class AuthService {
         }
         String storedHash = credentials.findPasswordHash(user.getId());
         return PasswordHasher.verify(password, storedHash) ? user : null;
+    }
+
+    //creates a participant account, throws DuplicateEmailException if the email is taken
+    public User register(String fullName, String email, int age, String password) {
+        User user = new User(fullName.trim(), email.trim(), age, Role.PARTICIPANT);
+        return users.create(user, PasswordHasher.hash(password));
     }
 }
