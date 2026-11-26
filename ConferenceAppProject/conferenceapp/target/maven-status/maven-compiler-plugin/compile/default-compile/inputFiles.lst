@@ -1,4 +1,5 @@
 C:\Users\Julien P-H\Documents\GitHub\Patterns-ConfererenceApp\ConferenceAppProject\conferenceapp\src\main\java\patterns\lia\App.java
+C:\Users\Julien P-H\Documents\GitHub\Patterns-ConfererenceApp\ConferenceAppProject\conferenceapp\src\main\java\patterns\lia\controller\AdminDashboardController.java
 C:\Users\Julien P-H\Documents\GitHub\Patterns-ConfererenceApp\ConferenceAppProject\conferenceapp\src\main\java\patterns\lia\controller\CreateAccountController.java
 C:\Users\Julien P-H\Documents\GitHub\Patterns-ConfererenceApp\ConferenceAppProject\conferenceapp\src\main\java\patterns\lia\controller\LoginController.java
 C:\Users\Julien P-H\Documents\GitHub\Patterns-ConfererenceApp\ConferenceAppProject\conferenceapp\src\main\java\patterns\lia\controller\PartDashboardController.java
@@ -9,6 +10,7 @@ C:\Users\Julien P-H\Documents\GitHub\Patterns-ConfererenceApp\ConferenceAppProje
 C:\Users\Julien P-H\Documents\GitHub\Patterns-ConfererenceApp\ConferenceAppProject\conferenceapp\src\main\java\patterns\lia\dao\UserDao.java
 C:\Users\Julien P-H\Documents\GitHub\Patterns-ConfererenceApp\ConferenceAppProject\conferenceapp\src\main\java\patterns\lia\db\DatabaseInitializer.java
 C:\Users\Julien P-H\Documents\GitHub\Patterns-ConfererenceApp\ConferenceAppProject\conferenceapp\src\main\java\patterns\lia\db\DatabaseManager.java
+C:\Users\Julien P-H\Documents\GitHub\Patterns-ConfererenceApp\ConferenceAppProject\conferenceapp\src\main\java\patterns\lia\exceptions\AccessDeniedException.java
 C:\Users\Julien P-H\Documents\GitHub\Patterns-ConfererenceApp\ConferenceAppProject\conferenceapp\src\main\java\patterns\lia\exceptions\DataAccessException.java
 C:\Users\Julien P-H\Documents\GitHub\Patterns-ConfererenceApp\ConferenceAppProject\conferenceapp\src\main\java\patterns\lia\exceptions\DuplicateEmailException.java
 C:\Users\Julien P-H\Documents\GitHub\Patterns-ConfererenceApp\ConferenceAppProject\conferenceapp\src\main\java\patterns\lia\Main.java

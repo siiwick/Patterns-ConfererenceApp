@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import patterns.lia.model.User;
+import patterns.lia.model.enums.Role;
 import patterns.lia.utilities.UserSession;
 
 public class PartDashboardController {
@@ -19,10 +20,9 @@ public class PartDashboardController {
 
     @FXML
     private void initialize() {
-        User user = UserSession.getCurrentUser();
-        if (user != null) {
-            usernameLabel.setText(user.getFullName());
-        }
+        //only participants
+        User user = UserSession.requireRole(Role.PARTICIPANT);
+        usernameLabel.setText(user.getFullName());
     }
 
     @FXML

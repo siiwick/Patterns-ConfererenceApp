@@ -60,14 +60,11 @@ public class LoginController {
             return;
         }
 
-        if (user.getRole() != Role.PARTICIPANT) {
-            showError("The admin dashboard is not available yet.");
-            return;
-        }
-
         UserSession.login(user);
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/participant UI/participantDashboard.fxml"));
+        String fxml = user.getRole() == Role.ADMIN ? "/admin UI/adminDashboard.fxml" : "/participant UI/participantDashboard.fxml";
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
         Parent root = loader.load();
         Stage stage = (Stage) emailField.getScene().getWindow();
         stage.setScene(new Scene(root));

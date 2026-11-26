@@ -8,7 +8,11 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import patterns.lia.dao.UserDao;
 import patterns.lia.exceptions.DataAccessException;
+import patterns.lia.model.User;
+import patterns.lia.model.enums.Role;
+import patterns.lia.utilities.PasswordHasher;
 
 /**
  * Creates the database.
@@ -20,10 +24,27 @@ public final class DatabaseInitializer {
     private DatabaseInitializer() {
     }
 
+    //predefined administrator account
+    public static final String ADMIN_NAME = "Liam Smith";
+    public static final String ADMIN_EMAIL = "liamsmith@conference.com";
+    public static final int ADMIN_AGE = 56;
+    public static final String ADMIN_PASSWORD = "admin";
+
     //Creates the database only if the schema does not exist yet.
     public static void initializeIfMissing(DatabaseManager db) {
         if (!tableExists(db, "users")) {
             reset(db);
+        }
+        ensureDefaultAdmin(db);
+    }
+
+    //adds the predefined administrator if that account is not in the database yet
+    public static void ensureDefaultAdmin(DatabaseManager db) {
+        UserDao users = new UserDao(db);
+        if (users.findByEmail(ADMIN_EMAIL) == null) {
+            User admin = new User(ADMIN_NAME, ADMIN_EMAIL, ADMIN_AGE, Role.ADMIN);
+            users.create(admin, PasswordHasher.hash(ADMIN_PASSWORD));
+            LOG.info("Created the default administrator account");
         }
     }
 
