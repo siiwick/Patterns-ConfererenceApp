@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import patterns.lia.db.DatabaseInitializer;
 import patterns.lia.db.DatabaseManager;
+import patterns.lia.utilities.LanguageManager;
 
 public class App extends Application {
 
@@ -14,9 +15,10 @@ public class App extends Application {
         DatabaseManager db = DatabaseManager.getDefault();
         DatabaseInitializer.initializeIfMissing(db);
 
-        FXMLLoader loader = new FXMLLoader(App.class.getResource("/login.fxml"));
+        LanguageManager lang = LanguageManager.get();
+        FXMLLoader loader = new FXMLLoader(App.class.getResource("/login.fxml"), lang.getBundle());
         Scene scene = new Scene(loader.load(), 450, 520);
-        stage.setTitle("Login");
+        stage.setTitle(lang.get("login.title"));
         stage.setScene(scene);
         stage.show();
     }

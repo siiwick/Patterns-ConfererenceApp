@@ -12,7 +12,7 @@
 
 <VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="patterns.lia.controller.LoginController">
    <children>
-      <Label text="Login">
+      <Label text="%login.title">
          <padding>
             <Insets bottom="20.0" />
          </padding>
@@ -22,28 +22,28 @@
       </Label>
       <VBox>
          <children>
-            <Label minWidth="60.0" text="Email:" />
+            <Label minWidth="60.0" text="%login.email" />
             <TextField fx:id="emailField" onAction="#login" promptText="you@example.com" style="-fx-border-radius: 100;" />
          </children>
       </VBox>
       <VBox>
          <children>
-            <Label minWidth="60.0" text="Password:" />
+            <Label minWidth="60.0" text="%login.password" />
             <PasswordField fx:id="passwordField" onAction="#login" style="-fx-border-radius: 100;" />
          </children>
       </VBox>
       <Label fx:id="errorLabel" style="-fx-text-fill: #c62828;" wrapText="true" />
       <HBox alignment="CENTER" spacing="10.0">
          <children>
-            <Button mnemonicParsing="false" defaultButton="true" onAction="#login" prefHeight="41.0" prefWidth="112.0" style="-fx-border-radius: 100;" text="Login" />
-            <Button mnemonicParsing="false" onAction="#exit" prefHeight="41.0" prefWidth="73.0" style="-fx-border-radius: 100;" text="Exit" />
+            <Button mnemonicParsing="false" defaultButton="true" onAction="#login" prefHeight="41.0" minWidth="112.0" style="-fx-border-radius: 100;" text="%login.button" />
+            <Button mnemonicParsing="false" onAction="#exit" prefHeight="41.0" minWidth="73.0" style="-fx-border-radius: 100;" text="%button.exit" />
          </children>
          <padding>
             <Insets top="20.0" />
          </padding>
       </HBox>
-      <Hyperlink onAction="#openCreateAccount" text="Don't have an account? Create one" textAlignment="CENTER" />
-      <Hyperlink text="🌐 Language" textAlignment="CENTER" />
+      <Hyperlink onAction="#openCreateAccount" text="%login.createAccountLink" textAlignment="CENTER" />
+      <Hyperlink onAction="#switchLanguage" text="%language.switch" textAlignment="CENTER" />
    </children>
    <padding>
       <Insets bottom="20.0" left="80.0" right="80.0" top="40.0" />

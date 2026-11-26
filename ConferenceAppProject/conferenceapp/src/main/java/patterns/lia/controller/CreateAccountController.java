@@ -1,6 +1,8 @@
 package patterns.lia.controller;
 
 import java.io.IOException;
+import java.io.UncheckedIOException;
+import java.util.ResourceBundle;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -18,9 +20,11 @@ import patterns.lia.exceptions.DataAccessException;
 import patterns.lia.exceptions.DuplicateEmailException;
 import patterns.lia.model.User;
 import patterns.lia.service.AuthService;
+import patterns.lia.utilities.LanguageListener;
+import patterns.lia.utilities.LanguageManager;
 import patterns.lia.utilities.UserSession;
 
-public class CreateAccountController {
+public class CreateAccountController implements LanguageListener {
 
     private static final int MIN_AGE = 16;
     private static final int MAX_AGE = 120;
@@ -48,9 +52,11 @@ public class CreateAccountController {
     private Label errorLabel;
 
     private final AuthService authService = new AuthService(DatabaseManager.getDefault());
+    private final LanguageManager lang = LanguageManager.get();
 
     @FXML
     private void initialize() {
+        lang.addListener(this);
         ageSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(MIN_AGE, MAX_AGE, 18));
         clearError();
     }
@@ -65,56 +71,86 @@ public class CreateAccountController {
         Integer age = readAge();
 
         if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || password.isEmpty()) {
-            showError("Please fill in every field.");
+            showError(lang.get("validation.required"));
             return;
         }
         if (age == null) {
-            showError("Age must be a number between " + MIN_AGE + " and " + MAX_AGE + ".");
+            showError(lang.format("validation.age.range", MIN_AGE, MAX_AGE));
             return;
         }
         if (!email.matches("[^@\\s]+@[^@\\s]+\\.[^@\\s]+")) {
-            showError("Please enter a valid email address.");
+            showError(lang.get("validation.email.invalid"));
             return;
         }
         if (password.length() < MIN_PASSWORD_LENGTH) {
-            showError("Password must be at least " + MIN_PASSWORD_LENGTH + " characters.");
+            showError(lang.format("validation.password.short", MIN_PASSWORD_LENGTH));
             return;
         }
         if (!password.equals(confirmPassword)) {
             confirmPasswordField.clear();
-            showError("Passwords do not match.");
+            showError(lang.get("validation.password.mismatch"));
             return;
         }
 
         User user;
         try {
             user = authService.register(firstName + " " + lastName, email, age, password);
-        } catch (DuplicateEmailException e) {
-            showError("An account with this email already exists.");
-            return;
-        } catch (DataAccessException e) {
-            showError("The data could not be saved or read. Please try again.");
+        } catch (DuplicateEmailException | DataAccessException e) {
+            showError(lang.get(e.getMessage()));
             return;
         }
 
         UserSession.login(user);
+        lang.removeListener(this);
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/participant UI/participantDashboard.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/participant UI/participantDashboard.fxml"), lang.getBundle());
         Parent root = loader.load();
         Stage stage = (Stage) emailField.getScene().getWindow();
         stage.setScene(new Scene(root));
-        stage.setTitle("Conference Manager");
+        stage.setTitle(lang.get("app.title"));
         stage.centerOnScreen();
     }
 
     @FXML
     public void backToLogin() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/login.fxml"));
+        lang.removeListener(this);
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/login.fxml"), lang.getBundle());
         Parent root = loader.load();
         Stage stage = (Stage) emailField.getScene().getWindow();
         stage.setScene(new Scene(root, 450, 520));
-        stage.setTitle("Login");
+        stage.setTitle(lang.get("login.title"));
         stage.centerOnScreen();
+    }
+
+    @FXML
+    public void switchLanguage() {
+        lang.toggle();
+    }
+
+    //Observer: reload this screen in the new language and copy over what the user already typed
+    @Override
+    public void onLanguageChanged(ResourceBundle bundle) {
+        lang.removeListener(this);
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/createAccount.fxml"), bundle);
+            Parent root = loader.load();
+            CreateAccountController newController = loader.getController();
+            newController.firstNameField.setText(firstNameField.getText());
+            newController.lastNameField.setText(lastNameField.getText());
+            newController.ageSpinner.getEditor().setText(ageSpinner.getEditor().getText());
+            newController.emailField.setText(emailField.getText());
+            newController.passwordField.setText(passwordField.getText());
+            newController.confirmPasswordField.setText(confirmPasswordField.getText());
+
+            //new scene so the window resizes to fit the longer or shorter text
+            Stage stage = (Stage) emailField.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.sizeToScene();
+            stage.setTitle(bundle.getString("createAccount.title"));
+        } catch (IOException e) {
+            throw new UncheckedIOException(e);
+        }
     }
 
     @FXML

@@ -21,7 +21,7 @@
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Label text="Conference Manager - Admin">
+                  <Label text="%admin.title">
                      <font>
                         <Font name="Franklin Gothic Medium Cond" size="24.0" />
                      </font>
@@ -31,23 +31,23 @@
             <Label fx:id="usernameLabel" text="Username" />
             <HBox alignment="CENTER_RIGHT" spacing="5.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Button mnemonicParsing="false" onAction="#logout" prefHeight="26.0" prefWidth="82.0" text="Logout" />
-                  <Button mnemonicParsing="false" onAction="#exit" prefHeight="26.0" prefWidth="46.0" text="Exit" />
-                  <Hyperlink text="🌐 Language" />
+                  <Button mnemonicParsing="false" onAction="#logout" prefHeight="26.0" minWidth="82.0" text="%button.logout" />
+                  <Button mnemonicParsing="false" onAction="#exit" prefHeight="26.0" minWidth="46.0" text="%button.exit" />
+                  <Hyperlink onAction="#switchLanguage" text="%language.switch" />
                </children>
             </HBox>
          </children>
       </HBox>
    </top>
    <center>
-      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+      <TabPane fx:id="tabPane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
         <tabs>
-          <Tab text="Conferences">
+          <Tab text="%admin.tab.conferences">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
             </content>
           </Tab>
-          <Tab text="Reports">
+          <Tab text="%admin.tab.reports">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
             </content>

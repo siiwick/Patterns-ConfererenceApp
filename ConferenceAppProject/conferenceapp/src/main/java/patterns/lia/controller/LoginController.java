@@ -1,6 +1,8 @@
 package patterns.lia.controller;
 
 import java.io.IOException;
+import java.io.UncheckedIOException;
+import java.util.ResourceBundle;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -16,9 +18,11 @@ import patterns.lia.exceptions.DataAccessException;
 import patterns.lia.model.User;
 import patterns.lia.model.enums.Role;
 import patterns.lia.service.AuthService;
+import patterns.lia.utilities.LanguageListener;
+import patterns.lia.utilities.LanguageManager;
 import patterns.lia.utilities.UserSession;
 
-public class LoginController {
+public class LoginController implements LanguageListener {
 
     @FXML
     private TextField emailField;
@@ -30,9 +34,11 @@ public class LoginController {
     private Label errorLabel;
 
     private final AuthService authService = new AuthService(DatabaseManager.getDefault());
+    private final LanguageManager lang = LanguageManager.get();
 
     @FXML
     private void initialize() {
+        lang.addListener(this);
         clearError();
     }
 
@@ -42,7 +48,7 @@ public class LoginController {
         String password = passwordField.getText() == null ? "" : passwordField.getText();
 
         if (email.isEmpty() || password.isEmpty()) {
-            showError("Please enter your email and password.");
+            showError(lang.get("validation.login.empty"));
             return;
         }
 
@@ -50,36 +56,61 @@ public class LoginController {
         try {
             user = authService.login(email, password);
         } catch (DataAccessException e) {
-            showError("The data could not be saved or read. Please try again.");
+            showError(lang.get(e.getMessage()));
             return;
         }
 
         if (user == null) {
             passwordField.clear();
-            showError("Incorrect email or password.");
+            showError(lang.get("validation.login.invalid"));
             return;
         }
 
         UserSession.login(user);
+        lang.removeListener(this);
 
         String fxml = user.getRole() == Role.ADMIN ? "/admin UI/adminDashboard.fxml" : "/participant UI/participantDashboard.fxml";
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml), lang.getBundle());
         Parent root = loader.load();
         Stage stage = (Stage) emailField.getScene().getWindow();
         stage.setScene(new Scene(root));
-        stage.setTitle("Conference Manager");
+        stage.setTitle(lang.get("app.title"));
         stage.centerOnScreen();
     }
 
     @FXML
     public void openCreateAccount() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/createAccount.fxml"));
+        lang.removeListener(this);
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/createAccount.fxml"), lang.getBundle());
         Parent root = loader.load();
         Stage stage = (Stage) emailField.getScene().getWindow();
         stage.setScene(new Scene(root));
-        stage.setTitle("Create Account");
+        stage.setTitle(lang.get("createAccount.title"));
         stage.centerOnScreen();
+    }
+
+    @FXML
+    public void switchLanguage() {
+        lang.toggle();
+    }
+
+    //Observer: reload this screen in the new language and keep the typed email
+    @Override
+    public void onLanguageChanged(ResourceBundle bundle) {
+        lang.removeListener(this);
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/login.fxml"), bundle);
+            Parent root = loader.load();
+            LoginController newController = loader.getController();
+            newController.emailField.setText(emailField.getText());
+
+            emailField.getScene().setRoot(root);
+            ((Stage) root.getScene().getWindow()).setTitle(bundle.getString("login.title"));
+        } catch (IOException e) {
+            throw new UncheckedIOException(e);
+        }
     }
 
     @FXML
