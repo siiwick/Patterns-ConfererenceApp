@@ -1,1 +1,4 @@
+patterns\lia\service\report\ParticipantRegistrationsReport.class
+patterns\lia\service\report\UnregisteredConferencesReport.class
+patterns\lia\service\report\OccupancyReport.class
 patterns\lia\service\ReportService$1.class
