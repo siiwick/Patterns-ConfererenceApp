@@ -28,7 +28,10 @@ C:\Users\Julien P-H\Documents\GitHub\Patterns-ConfererenceApp\ConferenceAppProje
 C:\Users\Julien P-H\Documents\GitHub\Patterns-ConfererenceApp\ConferenceAppProject\conferenceapp\src\main\java\patterns\lia\service\AuthService.java
 C:\Users\Julien P-H\Documents\GitHub\Patterns-ConfererenceApp\ConferenceAppProject\conferenceapp\src\main\java\patterns\lia\service\report\ConferenceOverviewReport.java
 C:\Users\Julien P-H\Documents\GitHub\Patterns-ConfererenceApp\ConferenceAppProject\conferenceapp\src\main\java\patterns\lia\service\report\ConferenceParticipantsReport.java
+C:\Users\Julien P-H\Documents\GitHub\Patterns-ConfererenceApp\ConferenceAppProject\conferenceapp\src\main\java\patterns\lia\service\report\OccupancyReport.java
+C:\Users\Julien P-H\Documents\GitHub\Patterns-ConfererenceApp\ConferenceAppProject\conferenceapp\src\main\java\patterns\lia\service\report\ParticipantRegistrationsReport.java
 C:\Users\Julien P-H\Documents\GitHub\Patterns-ConfererenceApp\ConferenceAppProject\conferenceapp\src\main\java\patterns\lia\service\report\ReportStrategy.java
+C:\Users\Julien P-H\Documents\GitHub\Patterns-ConfererenceApp\ConferenceAppProject\conferenceapp\src\main\java\patterns\lia\service\report\UnregisteredConferencesReport.java
 C:\Users\Julien P-H\Documents\GitHub\Patterns-ConfererenceApp\ConferenceAppProject\conferenceapp\src\main\java\patterns\lia\service\report\WaitingListReport.java
 C:\Users\Julien P-H\Documents\GitHub\Patterns-ConfererenceApp\ConferenceAppProject\conferenceapp\src\main\java\patterns\lia\service\ReportService.java
 C:\Users\Julien P-H\Documents\GitHub\Patterns-ConfererenceApp\ConferenceAppProject\conferenceapp\src\main\java\patterns\lia\utilities\DateTimeUtil.java

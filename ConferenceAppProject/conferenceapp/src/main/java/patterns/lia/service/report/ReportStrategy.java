@@ -17,10 +17,10 @@ public interface ReportStrategy {
     //message key of the report name
     String getNameKey();
 
-    //what the admin has to choose first (nothing or a conference)
+    //what the admin has to choose first (nothing, a conference or a participant)
     ReportInput getInput();
 
-    //builds the report. selectedId is the chosen conference, or null for none
+    //builds the report. selectedId is the chosen conference or participant, or null for none
     ReportTable generate(Long selectedId);
 
     //translates column header keys

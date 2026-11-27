@@ -103,8 +103,8 @@ public class AdminDashboardController implements LanguageListener {
             return;
         }
 
-        //this report needs a conference first
-        String inputKey = "reports.select.conference";
+        //this report needs a conference or participant first
+        String inputKey = report.getInput() == ReportInput.CONFERENCE ? "reports.select.conference" : "reports.select.participant";
         selectorLabel.setText(lang.get(inputKey));
         optionBox.setValue(null);
         try {
@@ -119,7 +119,7 @@ public class AdminDashboardController implements LanguageListener {
         feedbackLabel.setText("");
     }
 
-    //called when a conference is picked in the dropdown
+    //called when a conference or participant is picked in the dropdown
     @FXML
     public void runSelectedOption() {
         int index = reportList.getSelectionModel().getSelectedIndex();

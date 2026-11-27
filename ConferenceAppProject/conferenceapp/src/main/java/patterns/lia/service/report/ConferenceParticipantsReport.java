@@ -30,8 +30,7 @@ public class ConferenceParticipantsReport implements ReportStrategy {
     public ReportTable generate(Long conferenceId) {
         LanguageManager lang = LanguageManager.get();
         List<List<String>> rows = reportDao.findConfirmedParticipants(conferenceId).stream()
-                .map(p -> List.of(p.getFullName(), p.getEmail(), String.valueOf(p.getAge()),
-                        lang.formatDateTime(p.getRegisteredAt())))
+                .map(p -> List.of(p.getFullName(), p.getEmail(), String.valueOf(p.getAge()), lang.formatDateTime(p.getRegisteredAt())))
                 .toList();
         return new ReportTable(columns("column.name", "column.email", "column.age", "column.registeredAt"), rows);
     }
