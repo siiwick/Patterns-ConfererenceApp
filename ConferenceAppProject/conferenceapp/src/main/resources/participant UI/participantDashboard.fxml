@@ -6,9 +6,11 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 
@@ -44,12 +46,14 @@
         <tabs>
           <Tab text="%participant.tab.conferences">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+               <fx:include fx:id="participantConferences" source="participantConferences.fxml"/>
             </content>
           </Tab>
           <Tab text="%participant.tab.registrations">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              <fx:include fx:id="registrations" source="participantRegistered.fxml"/>
             </content>
           </Tab>
             <Tab text="%participant.tab.waitingLists">

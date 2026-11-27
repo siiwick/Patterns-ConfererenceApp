@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="patterns.lia.controller.RegistrationsController">
+    <padding>
+        <Insets bottom="40.0" left="40.0" right="40.0" top="40.0"/>
+    </padding>
+    <Label text="%participant.tab.registrations">
+        <font>
+        <Font name="Franklin Gothic Medium Cond" size="18.0" />
+        </font>
+    </Label>
+    <TableView minHeight="0.0" minWidth="0.0" prefHeight="140.0" prefWidth="160.0" fx:id="registrationTable"></TableView>
+    <VBox spacing="40.0" alignment="BOTTOM_CENTER">
+        <padding>
+        <Insets top="40.0" />
+        </padding>
+        <Button text="%participant.unregister"></Button>
+        <Label fx:id="feedbackLabel" text="placeholder so i can see how it looks"></Label>
+    </VBox>
+</VBox>

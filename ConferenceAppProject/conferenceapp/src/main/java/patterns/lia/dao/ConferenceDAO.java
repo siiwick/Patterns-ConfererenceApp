@@ -23,7 +23,7 @@ public class ConferenceDAO {
     }
 
     public List<Conference> getConferences() {
-        String selectAll = "Select * From conferences";
+        String selectAll = "SELECT * FROM conferences";
         try (Connection connection = dbm.getConnection(); Statement statement = connection.createStatement()) {
             ResultSet results = statement.executeQuery(selectAll);
             List<Conference> conferences = new ArrayList<>();

@@ -76,7 +76,7 @@ public class RegistrationDAO {
         String getRegistered="""
                                 SELECT * FROM users
                                 WHERE user_id IN (
-                                        SELECT user_id FROM registrations WHERE conference_id=?)""";
+                                        SELECT user_id FROM registrations WHERE conference_id=? AND status='CONFIRMED')""";
         try (Connection connection = dbm.getConnection(); PreparedStatement statement = connection.prepareStatement(getRegistered)) {
             List<User> registeredUsers=new ArrayList<>();
             statement.setInt(1,conference.getConferenceId());
@@ -94,6 +94,24 @@ public class RegistrationDAO {
         String getRegistered="""
                                 SELECT * FROM conferences
                                 WHERE conference_id IN (
+                                        SELECT conference_id FROM registrations WHERE user_id=?)""";
+        try (Connection connection = dbm.getConnection(); PreparedStatement statement = connection.prepareStatement(getRegistered)) {
+            List<Conference> conferencesRegistered=new ArrayList<>();
+            statement.setLong(1,user.getId());
+            ResultSet results=statement.executeQuery();
+            while(results.next()){
+                conferencesRegistered.add(new Conference(results.getInt("conference_id"),results.getString("title"),results.getInt("capacity"),DateTimeUtil.parse(results.getString("start_datetime")),DateTimeUtil.parse(results.getString("end_datetime")),results.getString("venue")));
+            }
+            return conferencesRegistered;
+        }catch (SQLException e) {
+            DBLogger.log("Failed to get registered users: " + e);
+            return null;
+        }
+    }
+    public List<Conference> getConferencesNotRegistered(User user){
+        String getRegistered="""
+                                SELECT * FROM conferences
+                                WHERE conference_id NOT IN (
                                         SELECT conference_id FROM registrations WHERE user_id=?)""";
         try (Connection connection = dbm.getConnection(); PreparedStatement statement = connection.prepareStatement(getRegistered)) {
             List<Conference> conferencesRegistered=new ArrayList<>();
@@ -132,7 +150,7 @@ public class RegistrationDAO {
 
     private boolean registrationFull(Conference conference){
         String selectCapacity = "SELECT capacity FROM conferences WHERE conference_id=?;";
-        String selectAttendance="SELECT COUNT(*) FROM registrations WHERE conference_id=?";
+        String selectAttendance="SELECT COUNT(*) FROM registrations WHERE conference_id=? AND status='CONFIRMED'";
         try (Connection connection = dbm.getConnection(); PreparedStatement statement = connection.prepareStatement(selectCapacity);PreparedStatement attendenceStatement=connection.prepareStatement(selectAttendance);){
             statement.setInt(1,conference.getConferenceId());
             ResultSet results=statement.executeQuery();
@@ -151,7 +169,7 @@ public class RegistrationDAO {
         }
     }
     private int countRegistrations(Conference conference){
-        String selectAttendance="SELECT COUNT(*) FROM registrations WHERE conference_id=?";
+        String selectAttendance="SELECT COUNT(*) FROM registrations WHERE conference_id=? AND status='CONFIRMED'";
         try (Connection connection = dbm.getConnection(); PreparedStatement statement = connection.prepareStatement(selectAttendance)){
             statement.setInt(1,conference.getConferenceId());
             ResultSet count=statement.executeQuery();

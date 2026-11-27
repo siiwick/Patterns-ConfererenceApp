@@ -1,28 +1,30 @@
 package patterns.lia.model;
 import java.time.LocalDateTime;
 
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import patterns.lia.utilities.DateTimeUtil;
 
 public class Conference {
-    private int conferenceId;
-    private String title;
+    private SimpleIntegerProperty conferenceId;
+    private SimpleStringProperty title;
     private int capacity;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
     private String venue;
     public Conference(int conferenceId, String title, int capacity, LocalDateTime startTime,LocalDateTime endTime, String venue) {
-        this.conferenceId = conferenceId;
-        this.title = title;
+        this.conferenceId = new SimpleIntegerProperty(conferenceId);
+        this.title = new SimpleStringProperty(title);
         this.capacity = capacity;
         this.startTime = startTime;
         this.endTime = endTime;
         this.venue = venue;
     }
     public int getConferenceId() {
-        return conferenceId;
+        return conferenceId.get();
     }
     public String getTitle() {
-        return title;
+        return title.get();
     }
     public int getCapacity() {
         return capacity;
@@ -37,10 +39,10 @@ public class Conference {
         return venue;
     }
     public void setConferenceId(int conferenceId) {
-        this.conferenceId = conferenceId;
+        this.conferenceId = new SimpleIntegerProperty(conferenceId);
     }
     public void setTitle(String title) {
-        this.title = title;
+        this.title = new SimpleStringProperty(title);
     }
     public void setCapacity(int capacity) {
         this.capacity = capacity;
@@ -59,8 +61,8 @@ public class Conference {
         return conferenceId+" | "+title+" | "+startTime+" | "+endTime+" | "+venue;
     }
     public boolean equals(Conference conference){
-        if(conferenceId!=conference.getConferenceId()) return false;
-        if(!title.equals(conference.getTitle()))return false;
+        if(conferenceId.get()!=conference.getConferenceId()) return false;
+        if(!title.get().equals(conference.getTitle()))return false;
         if(capacity!=conference.getCapacity()) return false;
         if(!DateTimeUtil.parse(DateTimeUtil.format(startTime)).equals(DateTimeUtil.parse(DateTimeUtil.format(conference.getStartTime())))) return false;
         if(!DateTimeUtil.parse(DateTimeUtil.format(endTime)).equals(DateTimeUtil.parse(DateTimeUtil.format(conference.getEndTime())))) return false;
